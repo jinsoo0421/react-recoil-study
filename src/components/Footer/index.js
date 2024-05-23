@@ -1,7 +1,10 @@
 import * as state from '../../state/todos'
 import {useRecoilState} from "recoil";
 
+// To-do Count와 To-do 필터
+
 export const Footer = () => {
+    // useRecoilState를 통해 다른 컴포넌트(/state/todos)에 있는 atom의 상태를 변경 가능하도록 함 (= useState 전역 ver.)
     const [filterType, setFilterType] = useRecoilState(state.filterType)
 
     return (
