@@ -1,6 +1,7 @@
 import {useSetRecoilState} from "recoil";
 import {todos} from "../../state/todos";
 import {useEffect, useRef, useState} from "react";
+import {handleEnterKey} from "../../utils/KeyInputHandler"
 
 // 실제 To-do 각각의 데이터
 
@@ -78,12 +79,9 @@ const Todo = (props) => {
         setEditing(false)
     }
 
-    // 엔터키 인식
+    // 엔터키 입력 시 처리
     const handleEditTextEnter = e => {
-        if (!(e.key === 'Enter' || e.keyCode === 13)) {
-            return
-        }
-
+        handleEnterKey(e);
         editTodo()
     }
 

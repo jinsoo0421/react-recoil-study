@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useSetRecoilState } from 'recoil'
 import { createTodo, todos } from '../../state/todos'
+import {handleEnterKey} from "../../utils/KeyInputHandler"
 
 // 헤더
 // 타이틀 및 To-do 입력창이 존재
@@ -17,10 +18,7 @@ export const Header = () => {
 
     // 키보드 입력 시 작업
     const handleAddTodo = e => {
-        //엔터키 작업
-        if(!(e.key === 'Enter' || e.keyCode === 13)) {
-            return
-        }
+        handleEnterKey(e)
 
         // 공백이면 값 리셋
         if(text === '') {
